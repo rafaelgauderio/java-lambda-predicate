@@ -32,6 +32,11 @@ public class Produto {
 		this.preco = preco;
 	}
 	
+	public static boolean staticProdutoPredicate(Produto prod) {
+		
+		return prod.getPreco() >= 300; 
+		
+	}	
 	
 
 	@Override

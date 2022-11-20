@@ -1,8 +1,10 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import entities.Produto;
 import util.ProdutoPredicate;
@@ -43,6 +45,21 @@ public class Program {
 			System.out.println(produtos);
 		}
 		
+		Set<Produto> conjunto = new HashSet<Produto>();
+		conjunto.add(new Produto("Televisão", 1900.00));
+		conjunto.add(new Produto("Mouse", 50.00));
+		conjunto.add(new Produto("Mouse sem fio",80.0));
+		conjunto.add(new Produto("Tablet", 750.50));
+		conjunto.add(new Produto("HD Case", 90.90));
+		conjunto.add(new Produto("Monitor", 300.90));
+		
+		System.out.println("\nReference metho com método estático\n"
+				+ "Aceita uma referência para o método ao invés de apenas um objeto instanciado para a classe.");
+		
+		conjunto.removeIf(Produto::staticProdutoPredicate);
+		for(Produto produtos : conjunto ) {
+			System.out.println(produtos);
+		}
 		
 		
 
