@@ -9,7 +9,7 @@ public class ProdutoPredicate  implements Predicate <Produto>{
 	@Override
 	public boolean test(Produto prod) {
 		
-		return prod.getPreco() <=300.0;
+		return prod.getPreco() <= 300.0;
 	}
 
 }

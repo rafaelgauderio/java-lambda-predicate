@@ -53,12 +53,20 @@ public class Program {
 		conjunto.add(new Produto("HD Case", 90.90));
 		conjunto.add(new Produto("Monitor", 300.90));
 		
-		System.out.println("\nReference metho com método estático\n"
+		System.out.println("\nReference method com método estático\n"
 				+ "Aceita uma referência para o método ao invés de apenas um objeto instanciado para a classe.");
 		
 		conjunto.removeIf(Produto::staticProdutoPredicate);
 		for(Produto produtos : conjunto ) {
 			System.out.println(produtos);
+		}
+		
+		System.out.println("\nReference metho com método NÃO estático\n"
+				+ "Condição é remover produtos com preço maior que r$ 60.0");
+		
+		conjunto.removeIf(Produto::naoStaticProdutoPredicate);
+		for(Produto nickname : conjunto) {
+			System.out.println(nickname);
 		}
 		
 		

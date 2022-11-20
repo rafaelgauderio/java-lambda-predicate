@@ -36,7 +36,14 @@ public class Produto {
 		
 		return prod.getPreco() >= 300; 
 		
-	}	
+	}
+	
+	public boolean naoStaticProdutoPredicate( ) {
+		
+		// método da instancia, vai trabvalhar com o próprio objeto
+		return this.preco >= 60; 
+		
+	}
 	
 
 	@Override
