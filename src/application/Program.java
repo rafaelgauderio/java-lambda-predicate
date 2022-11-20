@@ -13,6 +13,7 @@ import util.ProdutoPredicate;
 public class Program {
 	
 	public static final double MINIMO = 300.0;
+	public static final double MAXIMO = 300.0;
 
 	public static void main(String[] args) {
 		
@@ -78,6 +79,14 @@ public class Program {
 		Predicate<Produto> lambda = prod -> prod.getPreco() >= MINIMO; 
 		conjunto.removeIf(lambda);
 		
+		for(Produto nickname : conjunto) {
+			System.out.println(nickname);
+		}
+		
+		System.out.println("\nExpressão lambda inline (coloca a expressão lambida como argumento)\n"
+				+ "Condição é remover produtos com preço menor que r$ 299.0");
+		conjunto.removeIf(prod -> prod.getPreco() <=MAXIMO);
+		// vai ter que retornar um SET vazio, pois na operação anterior removeu os maiores que 300
 		for(Produto nickname : conjunto) {
 			System.out.println(nickname);
 		}
