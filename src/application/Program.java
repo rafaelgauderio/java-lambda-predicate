@@ -5,11 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import entities.Produto;
 import util.ProdutoPredicate;
 
 public class Program {
+	
+	public static final double MINIMO = 300.0;
 
 	public static void main(String[] args) {
 		
@@ -56,7 +59,7 @@ public class Program {
 		System.out.println("\nReference method com método estático\n"
 				+ "Aceita uma referência para o método ao invés de apenas um objeto instanciado para a classe.");
 		
-		conjunto.removeIf(Produto::staticProdutoPredicate);
+		//conjunto.removeIf(Produto::staticProdutoPredicate);
 		for(Produto produtos : conjunto ) {
 			System.out.println(produtos);
 		}
@@ -64,10 +67,21 @@ public class Program {
 		System.out.println("\nReference metho com método NÃO estático\n"
 				+ "Condição é remover produtos com preço maior que r$ 60.0");
 		
-		conjunto.removeIf(Produto::naoStaticProdutoPredicate);
+		//conjunto.removeIf(Produto::naoStaticProdutoPredicate);
 		for(Produto nickname : conjunto) {
 			System.out.println(nickname);
 		}
+		
+		System.out.println("\nExpressão lambda declarada\n"
+				+ "Condição é remover produtos com preço maior que r$ 300.0");
+		
+		Predicate<Produto> lambda = prod -> prod.getPreco() >= MINIMO; 
+		conjunto.removeIf(lambda);
+		
+		for(Produto nickname : conjunto) {
+			System.out.println(nickname);
+		}
+		
 		
 		
 
